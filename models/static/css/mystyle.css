@@ -1,0 +1,45 @@
+.mainpagesaleslist {
+  height: 32px;
+  font-size: 14px;
+  text-align: center;
+  padding-top: 12px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.mainpagecatogorieslist {
+  height: 40px;
+  font-size: 14px;
+  text-align: center;
+  padding-top: 12px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.mainpagecatogorieslist:hover {
+    background-color:red;
+}
+
+.rednav {
+  background-color: red;
+  text-align: center;
+}
+
+
+input {
+  width: 240px;
+}
+
+.mainsearchbox {
+margin-top: 40px;
+}
+
+.mynavbar {
+margin-bottom: 0px;
+margin-top: 0px;
+background-color: #EEEEEE;
+padding-top: 8px;
+max-width: 100%;
+}
+
+

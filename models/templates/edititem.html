@@ -1,0 +1,86 @@
+{% extends "main.html" %} {% block content %} {% include "header.html" %}
+<div class="row divider green">
+    <div class="col-md-12"></div>
+</div>
+<div class="row banner menu">
+    <div class="col-md-11 col-md-offset-1 padding-none">
+        <h1>Edit Item</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 col-md-offset-1 padding-top">
+        <form action="#" method="POST">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" maxlength="50" class="form-control"
+                       name="name" placeholder="Name of the item" value='{{item.name}}'>
+                <label for="description">Description:</label>
+                <textarea class="form-control" maxlength="250" rows="3" name="description">{{item.description}}</textarea>
+
+                <label for="price">Price:</label>
+                <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input type="text" maxlength="10" class="form-control" name="price" value="{{item.price}}">
+                </div>
+                <br>
+                <div class="input-group">
+                    <label for="category">Category:
+                    </label>
+                    <br>
+                    <label for="firstlevelcategory">First Level:
+                    </label>
+                    <label>
+                        <select data-bind="options: $root.availableCategoryL1,value: L1,  optionsText: 'L1'"></select>
+                    </label>
+                </div>
+                <div class="input-group">
+                    <label for="secondlevel">Second Level:</label>
+                    <label>
+                        <select name="secondlevel" data-bind="options: $root.availableCategoryL2[0],  optionsText: 'L2',visible: L1().num == 0"></select>
+                        <select name="secondlevel" data-bind="options: $root.availableCategoryL2[1],  optionsText: 'L2',visible: L1().num == 1"></select>
+                    </label>
+                </div>
+                <button class="btn btn-default" id="submit" type="submit">
+                    <span class="glyphicon glyphicon-plus"
+                          aria-hidden="true"></span>Create
+                </button>
+            </div>
+        </form>
+        <a href="{{url_for('showItem',shop_id=shop_id)}}">
+            <button class="btn btn-default delete">
+                        <span class="glyphicon glyphicon-remove"
+                              aria-hidden="true"></span> Cancel
+                    </button>
+        </a>
+    </div>
+</div>
+<script>
+    document.getElementById('submit').disabled = false;
+// used for creat new item
+// user choose first level catagory
+// show respoding second level catagory for user to choose
+    function ViewModel() {
+    var self = this;
+    // Non-editable catalog data - would come from the server
+    self.availableCategoryL1 = [
+        { L1: "Clothing, Shoes & Jewelry", num: 0},
+        { L1: "Electronics & Computers", num: 1},
+    ];
+
+    self.availableCategoryL2 = [
+    [
+        { L2: "Clothing" },
+        { L2: "Shoes"},
+        { L2: "Jewelry"}
+    ],
+    [
+        { L2: "Electronics"},
+        { L2: "Computers"},
+    ]
+    ];
+    self.L1 = ko.observable(self.availableCategoryL1[0]);
+}
+
+ko.applyBindings(new ViewModel());
+</script>
+{% endblock %}

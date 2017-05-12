@@ -1,0 +1,64 @@
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="initial-scale=0.9, user-scalable=no">
+  <meta charset="utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row clearfix">
+      <div id="result" class="col-md-10 column rednav" style="margin-top:10%;text-align:center">
+          <h1>Hello, Welcome!<br> Please wait a moment</h1>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var authCode = getAuthCode(window.location.href);
+    // Extract the auth code from the original URL
+
+    function getAuthCode(url) {
+      var error = url.match(/[&\?]error=([^&]+)/);
+      if (error) {
+        throw 'Error getting authorization code: ' + error[1];
+      }
+      return url.match(/[&\?]code=([\w\/\-]+)/)[1];
+    }
+
+    var state = getState(window.location.href);
+
+    function getState(url) {
+      var error = url.match(/[&\?]error=([^&]+)/);
+      if (error) {
+        throw "Error getting authorization code: " + error[1];
+      }
+      return url.match(/[&\?]state=([\w\/\-]+)/)[1];
+    }
+
+
+    $.ajax({
+      type: "POST",
+      url: "/ghconnect?state=" + state,
+      processData: false,
+      data: authCode,
+      contentType: 'application/octet-stream; charset=utf-8',
+      success: function (result) {
+        // Handle or verify the server response if necessary.
+        if (result) {
+          $("#result").html("Login Successful!</br>" + result + "</br>Redirecting...")
+          setTimeout(function () {
+            window.location.href = "/home/";
+          }, 3000);
+        } else {
+          $("#result").html("Failed to make a server-side call. Check your configuration and console.");
+        }
+      }
+    })
+  </script>
+
+</body>
+
+</html>

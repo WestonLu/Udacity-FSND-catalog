@@ -1,0 +1,42 @@
+<div class="row clearfix">
+    <div class="col-md-12 column">
+        <nav class="navbar navbar-default mynavbar" role="navigation">
+            <div class=" col-md-1 column">
+                <p><a href="{{url_for('showHomepage')}}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></p>
+            </div>
+            <div class=" col-md-9 column">
+                <p>Hi,welcome.{%if 'username' not in session %}
+                     Please Login
+                    {% else %}
+                     {{user_name}} {% endif %}</p>
+            </div>
+            <div class="col-md-2 column">
+                {%if 'username' not in session %}
+                <a href="{{url_for('showLogin')}}" class="btn-sm btn-block btn-social btn-github">
+                    <span class="fa fa-github"></span> Sign in with Github
+                </a>
+                {% else %}
+                <p><a class= "logoutbutton" href="{{url_for('disconnect')}}">Logout </a></p> {% endif %}
+            </div>
+        </nav>
+    </div>
+</div>
+<div class="row clearfix">
+    <div class="col-md-4 column">
+        <a href="{{url_for('showHomepage')}}"><img alt="140x140"
+             src="/static/pic/mylogo.svg" class="img-rounded" style="width: 100%;height:auto"></a>
+    </div>
+    <div class="col-md-4 column">
+        <div class="mainsearchbox column">
+            <form action="demo_form.asp" method="get">
+                <input type="search" name="user_search" placeholder="Search" />
+                <button><i class="fa fa-search"
+                           aria-hidden="true"></i></button>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-4 column">
+        <img >
+<!--         src="http://placehold.it/290x130" class="img-rounded" -->
+    </div>
+</div>
