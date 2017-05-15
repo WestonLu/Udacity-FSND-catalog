@@ -1,0 +1,20 @@
+{% extends "main.html" %} {% block content %} {% include "header.html" %}
+<div class="row divider green">
+	<div class="col-md-12"></div>
+</div>
+
+{% if items !=[] %}
+<div class="row">
+	<div class="col-md-1"></div>
+	<div class="col-md-6">
+		{% for i in items %}
+		<div class="menu-item">
+			<h3>{{i.name}}</h3>
+			<p>{{i.description}}</p>
+			<p class="menu-price">{{i.price}}</p>
+			<p>category_id:{{i.category_id}}</p>
+		</div>
+		{% endfor %}
+	</div>
+</div>
+{% endif %} {% endblock %}

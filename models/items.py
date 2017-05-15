@@ -120,6 +120,17 @@ def deleteShop(shop_id):
     else:
         return render_template('deleteShop.html', shop=shopToDelete)
 
+# Show a category item
+@app.route('/category/<int:category_id>/')
+@app.route('/category/<int:category_id>/item/')
+@exiting_required
+def showCategoryItem(category_id):
+    items = session.query(Item).filter_by(
+        category_id=category_id).all()
+    return render_template('publiccategory.html', items=items)
+
+
+
 
 # Show a shop item
 @app.route('/shop/<int:shop_id>/')
@@ -152,7 +163,7 @@ def newItem(shop_id):
         newItem = Item(name=request.form['name'],
                        description=request.form['description'],
                        price=request.form[
-                           'price'], category_secondlevel=request.form['secondlevel'], shop_id=shop_id, user_id=shop.user_id)
+                           'price'], category_id=request.form['category_id'], shop_id=shop_id, user_id=shop.user_id)
         session.add(newItem)
         session.commit()
         flash('New Menu %s Item Successfully Created' % (newItem.name))
@@ -164,7 +175,7 @@ def newItem(shop_id):
 # Edit an item
 @app.route('/shop/<int:shop_id>/item/<int:item_id>/edit',
            methods=['GET', 'POST'])
-@exiting_required
+# @exiting_required
 @login_required
 def editItem(shop_id, item_id):
     editedItem = session.query(Item).filter_by(id=item_id).one()
@@ -179,9 +190,8 @@ def editItem(shop_id, item_id):
             editedItem.description = request.form['description']
         if request.form['price']:
             editedItem.price = request.form['price']
-        if request.form['secondlevel']:
-            editedItem.category_secondlevel = request.form[
-                'econdlevel']
+        if request.form['category_id']:
+            editedItem.category_id = request.form['category_id']
         session.add(editedItem)
         session.commit()
         flash('Menu Item Successfully Edited')

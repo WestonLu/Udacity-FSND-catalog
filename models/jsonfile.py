@@ -1,5 +1,5 @@
 from flask import jsonify
-from database_setup import Base, Shop, Item, User
+from database_setup import Base, Shop, Item, User, Category
 from flaskfile import app, session
 
 
@@ -20,3 +20,8 @@ def shopsJSON():
 def itemJSON():
     items = session.query(Item).all()
     return jsonify(Items=[r.serialize for r in items])
+
+@app.route('/category/JSON')
+def categoryJSON():
+    items = session.query(Category).all()
+    return jsonify(Category=[r.serialize for r in items])

@@ -1,0 +1,233 @@
+[Mon May 15 09:48:47.389747 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301] [2017-05-15 09:48:47,385] ERROR in app: Exception on /shops/ [GET]
+[Mon May 15 09:48:47.389827 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301] Traceback (most recent call last):
+[Mon May 15 09:48:47.389831 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]   File "/home/grader/.local/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+[Mon May 15 09:48:47.389834 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]     response = self.full_dispatch_request()
+[Mon May 15 09:48:47.389837 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]   File "/home/grader/.local/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+[Mon May 15 09:48:47.389840 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]     rv = self.handle_user_exception(e)
+[Mon May 15 09:48:47.389843 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]   File "/home/grader/.local/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+[Mon May 15 09:48:47.389846 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]     reraise(exc_type, exc_value, tb)
+[Mon May 15 09:48:47.389849 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]   File "/home/grader/.local/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+[Mon May 15 09:48:47.389852 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]     rv = self.dispatch_request()
+[Mon May 15 09:48:47.389854 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]   File "/home/grader/.local/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+[Mon May 15 09:48:47.389858 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]     return self.view_functions[rule.endpoint](**req.view_args)
+[Mon May 15 09:48:47.389861 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]   File "/home/grader/Udacity-FSND-catalog/models/items.py", line 46, in showShops
+[Mon May 15 09:48:47.389864 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]     shops = session.query(Shop, User).order_by(asc(Shop.name))
+[Mon May 15 09:48:47.389867 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]   File "/home/grader/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 1330, in query
+[Mon May 15 09:48:47.389869 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]     return self._query_cls(entities, self, **kwargs)
+[Mon May 15 09:48:47.389871 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]   File "/home/grader/.local/lib/python2.7/site-packages/sqlalchemy/orm/query.py", line 139, in __init__
+[Mon May 15 09:48:47.389873 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]     self._set_entities(entities)
+[Mon May 15 09:48:47.389875 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]   File "/home/grader/.local/lib/python2.7/site-packages/sqlalchemy/orm/query.py", line 150, in _set_entities
+[Mon May 15 09:48:47.389877 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]     self._set_entity_selectables(self._entities)
+[Mon May 15 09:48:47.389879 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]   File "/home/grader/.local/lib/python2.7/site-packages/sqlalchemy/orm/query.py", line 180, in _set_entity_selectables
+[Mon May 15 09:48:47.389881 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]     ent.setup_entity(*d[entity])
+[Mon May 15 09:48:47.389883 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]   File "/home/grader/.local/lib/python2.7/site-packages/sqlalchemy/orm/query.py", line 3585, in setup_entity
+[Mon May 15 09:48:47.389891 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]     self._with_polymorphic = ext_info.with_polymorphic_mappers
+[Mon May 15 09:48:47.389893 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]   File "/home/grader/.local/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 764, in __get__
+[Mon May 15 09:48:47.389895 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]     obj.__dict__[self.__name__] = result = self.fget(obj)
+[Mon May 15 09:48:47.389897 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]   File "/home/grader/.local/lib/python2.7/site-packages/sqlalchemy/orm/mapper.py", line 1948, in _with_polymorphic_mappers
+[Mon May 15 09:48:47.389899 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]     configure_mappers()
+[Mon May 15 09:48:47.389901 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]   File "/home/grader/.local/lib/python2.7/site-packages/sqlalchemy/orm/mapper.py", line 2866, in configure_mappers
+[Mon May 15 09:48:47.389903 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]     mapper._post_configure_properties()
+[Mon May 15 09:48:47.389905 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]   File "/home/grader/.local/lib/python2.7/site-packages/sqlalchemy/orm/mapper.py", line 1765, in _post_configure_properties
+[Mon May 15 09:48:47.389908 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]     prop.init()
+[Mon May 15 09:48:47.389909 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]   File "/home/grader/.local/lib/python2.7/site-packages/sqlalchemy/orm/interfaces.py", line 184, in init
+[Mon May 15 09:48:47.389911 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]     self.do_init()
+[Mon May 15 09:48:47.389913 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]   File "/home/grader/.local/lib/python2.7/site-packages/sqlalchemy/orm/relationships.py", line 1652, in do_init
+[Mon May 15 09:48:47.389915 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]     self._process_dependent_arguments()
+[Mon May 15 09:48:47.389917 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]   File "/home/grader/.local/lib/python2.7/site-packages/sqlalchemy/orm/relationships.py", line 1709, in _process_dependent_arguments
+[Mon May 15 09:48:47.389919 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]     self.target = self.mapper.mapped_table
+[Mon May 15 09:48:47.389921 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]   File "/home/grader/.local/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 764, in __get__
+[Mon May 15 09:48:47.389923 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]     obj.__dict__[self.__name__] = result = self.fget(obj)
+[Mon May 15 09:48:47.389925 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]   File "/home/grader/.local/lib/python2.7/site-packages/sqlalchemy/orm/relationships.py", line 1625, in mapper
+[Mon May 15 09:48:47.389927 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]     argument = self.argument()
+[Mon May 15 09:48:47.389929 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]   File "/home/grader/Udacity-FSND-catalog/models/database_setup.py", line 38, in <lambda>
+[Mon May 15 09:48:47.389931 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301]     parent = relationship(lambda: Region,remote_side=id,backref='sub_regions')
+[Mon May 15 09:48:47.389933 2017] [wsgi:error] [pid 31002:tid 139639447172864] [remote 101.68.136.213:9301] NameError: global name 'Region' is not defined
+[Mon May 15 09:55:56.453706 2017] [wsgi:error] [pid 31485:tid 139951170365184] 2017-05-15 09:55:56,453 INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+[Mon May 15 09:55:56.453993 2017] [wsgi:error] [pid 31485:tid 139951170365184] 2017-05-15 09:55:56,453 INFO sqlalchemy.engine.base.Engine ()
+[Mon May 15 09:55:56.454471 2017] [wsgi:error] [pid 31485:tid 139951170365184] 2017-05-15 09:55:56,454 INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+[Mon May 15 09:55:56.454590 2017] [wsgi:error] [pid 31485:tid 139951170365184] 2017-05-15 09:55:56,454 INFO sqlalchemy.engine.base.Engine ()
+[Mon May 15 09:55:56.455182 2017] [wsgi:error] [pid 31485:tid 139951170365184] 2017-05-15 09:55:56,455 INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+[Mon May 15 09:55:56.456457 2017] [wsgi:error] [pid 31485:tid 139951170365184] 2017-05-15 09:55:56,456 INFO sqlalchemy.engine.base.Engine SELECT shop.id AS shop_id, shop.name AS shop_name, shop.user_id AS shop_user_id, user.id AS user_id, user.name AS user_name, user.email AS user_email, user.picture AS user_picture 
+[Mon May 15 09:55:56.456471 2017] [wsgi:error] [pid 31485:tid 139951170365184] FROM shop, user ORDER BY shop.name ASC
+[Mon May 15 09:55:56.456708 2017] [wsgi:error] [pid 31485:tid 139951170365184] 2017-05-15 09:55:56,456 INFO sqlalchemy.engine.base.Engine ()
+[Mon May 15 09:56:00.669309 2017] [wsgi:error] [pid 31485:tid 139951195543296] 2017-05-15 09:56:00,669 INFO sqlalchemy.engine.base.Engine SELECT shop.id AS shop_id, shop.name AS shop_name, shop.user_id AS shop_user_id 
+[Mon May 15 09:56:00.669341 2017] [wsgi:error] [pid 31485:tid 139951195543296] FROM shop 
+[Mon May 15 09:56:00.669344 2017] [wsgi:error] [pid 31485:tid 139951195543296] WHERE shop.id = ?
+[Mon May 15 09:56:00.669457 2017] [wsgi:error] [pid 31485:tid 139951195543296] 2017-05-15 09:56:00,669 INFO sqlalchemy.engine.base.Engine (1,)
+[Mon May 15 09:56:00.670592 2017] [wsgi:error] [pid 31485:tid 139951195543296] 2017-05-15 09:56:00,670 INFO sqlalchemy.engine.base.Engine SELECT user.id AS user_id, user.name AS user_name, user.email AS user_email, user.picture AS user_picture 
+[Mon May 15 09:56:00.670603 2017] [wsgi:error] [pid 31485:tid 139951195543296] FROM user 
+[Mon May 15 09:56:00.670606 2017] [wsgi:error] [pid 31485:tid 139951195543296] WHERE user.id = ?
+[Mon May 15 09:56:00.670715 2017] [wsgi:error] [pid 31485:tid 139951195543296] 2017-05-15 09:56:00,670 INFO sqlalchemy.engine.base.Engine (1,)
+[Mon May 15 09:56:00.672419 2017] [wsgi:error] [pid 31485:tid 139951195543296] 2017-05-15 09:56:00,672 INFO sqlalchemy.engine.base.Engine SELECT item.name AS item_name, item.id AS item_id, item.description AS item_description, item.price AS item_price, item.shop_id AS item_shop_id, item.category_id AS item_category_id, item.user_id AS item_user_id 
+[Mon May 15 09:56:00.672430 2017] [wsgi:error] [pid 31485:tid 139951195543296] FROM item 
+[Mon May 15 09:56:00.672434 2017] [wsgi:error] [pid 31485:tid 139951195543296] WHERE item.shop_id = ?
+[Mon May 15 09:56:00.672535 2017] [wsgi:error] [pid 31485:tid 139951195543296] 2017-05-15 09:56:00,672 INFO sqlalchemy.engine.base.Engine (1,)
+[Mon May 15 09:56:02.416566 2017] [wsgi:error] [pid 31485:tid 139951195543296] 2017-05-15 09:56:02,416 INFO sqlalchemy.engine.base.Engine SELECT shop.id AS shop_id, shop.name AS shop_name, shop.user_id AS shop_user_id, user.id AS user_id, user.name AS user_name, user.email AS user_email, user.picture AS user_picture 
+[Mon May 15 09:56:02.416606 2017] [wsgi:error] [pid 31485:tid 139951195543296] FROM shop, user ORDER BY shop.name ASC
+[Mon May 15 09:56:02.416718 2017] [wsgi:error] [pid 31485:tid 139951195543296] 2017-05-15 09:56:02,416 INFO sqlalchemy.engine.base.Engine ()
+[Mon May 15 09:56:08.273758 2017] [wsgi:error] [pid 31485:tid 139951170365184] access code received 85f9f34cf3f869903c54 
+[Mon May 15 09:56:14.061566 2017] [wsgi:error] [pid 31485:tid 139951170365184] 2017-05-15 09:56:14,061 INFO sqlalchemy.engine.base.Engine SELECT user.id AS user_id, user.name AS user_name, user.email AS user_email, user.picture AS user_picture 
+[Mon May 15 09:56:14.061653 2017] [wsgi:error] [pid 31485:tid 139951170365184] FROM user 
+[Mon May 15 09:56:14.061660 2017] [wsgi:error] [pid 31485:tid 139951170365184] WHERE user.email = ?
+[Mon May 15 09:56:14.061792 2017] [wsgi:error] [pid 31485:tid 139951170365184] 2017-05-15 09:56:14,061 INFO sqlalchemy.engine.base.Engine (u'westonlu@foxmail.com',)
+[Mon May 15 09:56:17.122203 2017] [wsgi:error] [pid 31485:tid 139951195543296] 2017-05-15 09:56:17,122 INFO sqlalchemy.engine.base.Engine SELECT user.id AS user_id, user.name AS user_name, user.email AS user_email, user.picture AS user_picture 
+[Mon May 15 09:56:17.147888 2017] [wsgi:error] [pid 31485:tid 139951195543296] FROM user 
+[Mon May 15 09:56:17.147919 2017] [wsgi:error] [pid 31485:tid 139951195543296] WHERE user.id = ?
+[Mon May 15 09:56:17.148251 2017] [wsgi:error] [pid 31485:tid 139951195543296] 2017-05-15 09:56:17,148 INFO sqlalchemy.engine.base.Engine (1,)
+[Mon May 15 09:56:32.166943 2017] [wsgi:error] [pid 31485:tid 139951170365184] 2017-05-15 09:56:32,166 INFO sqlalchemy.engine.base.Engine SELECT shop.id AS shop_id, shop.name AS shop_name, shop.user_id AS shop_user_id, user.id AS user_id, user.name AS user_name, user.email AS user_email, user.picture AS user_picture 
+[Mon May 15 09:56:32.166979 2017] [wsgi:error] [pid 31485:tid 139951170365184] FROM shop, user ORDER BY shop.name ASC
+[Mon May 15 09:56:32.167093 2017] [wsgi:error] [pid 31485:tid 139951170365184] 2017-05-15 09:56:32,167 INFO sqlalchemy.engine.base.Engine ()
+[Mon May 15 09:56:34.143901 2017] [wsgi:error] [pid 31485:tid 139951195543296] 2017-05-15 09:56:34,143 INFO sqlalchemy.engine.base.Engine SELECT shop.id AS shop_id, shop.name AS shop_name, shop.user_id AS shop_user_id 
+[Mon May 15 09:56:34.143935 2017] [wsgi:error] [pid 31485:tid 139951195543296] FROM shop 
+[Mon May 15 09:56:34.143938 2017] [wsgi:error] [pid 31485:tid 139951195543296] WHERE shop.id = ?
+[Mon May 15 09:56:34.144044 2017] [wsgi:error] [pid 31485:tid 139951195543296] 2017-05-15 09:56:34,143 INFO sqlalchemy.engine.base.Engine (1,)
+[Mon May 15 09:56:34.144941 2017] [wsgi:error] [pid 31485:tid 139951195543296] 2017-05-15 09:56:34,144 INFO sqlalchemy.engine.base.Engine SELECT user.id AS user_id, user.name AS user_name, user.email AS user_email, user.picture AS user_picture 
+[Mon May 15 09:56:34.144951 2017] [wsgi:error] [pid 31485:tid 139951195543296] FROM user 
+[Mon May 15 09:56:34.144953 2017] [wsgi:error] [pid 31485:tid 139951195543296] WHERE user.id = ?
+[Mon May 15 09:56:34.145046 2017] [wsgi:error] [pid 31485:tid 139951195543296] 2017-05-15 09:56:34,144 INFO sqlalchemy.engine.base.Engine (1,)
+[Mon May 15 09:56:34.146277 2017] [wsgi:error] [pid 31485:tid 139951195543296] 2017-05-15 09:56:34,146 INFO sqlalchemy.engine.base.Engine SELECT item.name AS item_name, item.id AS item_id, item.description AS item_description, item.price AS item_price, item.shop_id AS item_shop_id, item.category_id AS item_category_id, item.user_id AS item_user_id 
+[Mon May 15 09:56:34.146289 2017] [wsgi:error] [pid 31485:tid 139951195543296] FROM item 
+[Mon May 15 09:56:34.146292 2017] [wsgi:error] [pid 31485:tid 139951195543296] WHERE item.shop_id = ?
+[Mon May 15 09:56:34.146391 2017] [wsgi:error] [pid 31485:tid 139951195543296] 2017-05-15 09:56:34,146 INFO sqlalchemy.engine.base.Engine (1,)
+[Mon May 15 09:56:34.190175 2017] [wsgi:error] [pid 31485:tid 139951170365184] 2017-05-15 09:56:34,190 INFO sqlalchemy.engine.base.Engine SELECT user.id AS user_id, user.name AS user_name, user.email AS user_email, user.picture AS user_picture 
+[Mon May 15 09:56:34.190203 2017] [wsgi:error] [pid 31485:tid 139951170365184] FROM user 
+[Mon May 15 09:56:34.190206 2017] [wsgi:error] [pid 31485:tid 139951170365184] WHERE user.id = ?
+[Mon May 15 09:56:34.190303 2017] [wsgi:error] [pid 31485:tid 139951170365184] 2017-05-15 09:56:34,190 INFO sqlalchemy.engine.base.Engine (1,)
+[Mon May 15 09:56:35.709977 2017] [wsgi:error] [pid 31485:tid 139951195543296] 2017-05-15 09:56:35,709 INFO sqlalchemy.engine.base.Engine SELECT shop.id AS shop_id, shop.name AS shop_name, shop.user_id AS shop_user_id, user.id AS user_id, user.name AS user_name, user.email AS user_email, user.picture AS user_picture 
+[Mon May 15 09:56:35.710055 2017] [wsgi:error] [pid 31485:tid 139951195543296] FROM shop, user ORDER BY shop.name ASC
+[Mon May 15 09:56:35.710200 2017] [wsgi:error] [pid 31485:tid 139951195543296] 2017-05-15 09:56:35,710 INFO sqlalchemy.engine.base.Engine ()
+[Mon May 15 09:56:46.968710 2017] [wsgi:error] [pid 31485:tid 139951195543296] 2017-05-15 09:56:46,968 INFO sqlalchemy.engine.base.Engine SELECT shop.id AS shop_id, shop.name AS shop_name, shop.user_id AS shop_user_id 
+[Mon May 15 09:56:46.972811 2017] [wsgi:error] [pid 31485:tid 139951195543296] FROM shop 
+[Mon May 15 09:56:46.972838 2017] [wsgi:error] [pid 31485:tid 139951195543296] WHERE shop.name = ?
+[Mon May 15 09:56:46.973191 2017] [wsgi:error] [pid 31485:tid 139951195543296] 2017-05-15 09:56:46,972 INFO sqlalchemy.engine.base.Engine (u'test2',)
+[Mon May 15 09:56:46.975553 2017] [wsgi:error] [pid 31485:tid 139951195543296] 2017-05-15 09:56:46,975 INFO sqlalchemy.engine.base.Engine INSERT INTO shop (name, user_id) VALUES (?, ?)
+[Mon May 15 09:56:46.975704 2017] [wsgi:error] [pid 31485:tid 139951195543296] 2017-05-15 09:56:46,975 INFO sqlalchemy.engine.base.Engine (u'test2', 1)
+[Mon May 15 09:56:46.976558 2017] [wsgi:error] [pid 31485:tid 139951195543296] 2017-05-15 09:56:46,976 INFO sqlalchemy.engine.base.Engine COMMIT
+[Mon May 15 09:56:47.059934 2017] [wsgi:error] [pid 31485:tid 139951170365184] 2017-05-15 09:56:47,059 INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+[Mon May 15 09:56:47.060759 2017] [wsgi:error] [pid 31485:tid 139951170365184] 2017-05-15 09:56:47,060 INFO sqlalchemy.engine.base.Engine SELECT shop.id AS shop_id, shop.name AS shop_name, shop.user_id AS shop_user_id, user.id AS user_id, user.name AS user_name, user.email AS user_email, user.picture AS user_picture 
+[Mon May 15 09:56:47.060776 2017] [wsgi:error] [pid 31485:tid 139951170365184] FROM shop, user ORDER BY shop.name ASC
+[Mon May 15 09:56:47.060915 2017] [wsgi:error] [pid 31485:tid 139951170365184] 2017-05-15 09:56:47,060 INFO sqlalchemy.engine.base.Engine ()
+[Mon May 15 09:56:48.499534 2017] [wsgi:error] [pid 31485:tid 139951195543296] 2017-05-15 09:56:48,499 INFO sqlalchemy.engine.base.Engine SELECT shop.id AS shop_id, shop.name AS shop_name, shop.user_id AS shop_user_id 
+[Mon May 15 09:56:48.499574 2017] [wsgi:error] [pid 31485:tid 139951195543296] FROM shop 
+[Mon May 15 09:56:48.499579 2017] [wsgi:error] [pid 31485:tid 139951195543296] WHERE shop.id = ?
+[Mon May 15 09:56:48.499736 2017] [wsgi:error] [pid 31485:tid 139951195543296] 2017-05-15 09:56:48,499 INFO sqlalchemy.engine.base.Engine (2,)
+[Mon May 15 09:56:48.501107 2017] [wsgi:error] [pid 31485:tid 139951195543296] 2017-05-15 09:56:48,501 INFO sqlalchemy.engine.base.Engine SELECT user.id AS user_id, user.name AS user_name, user.email AS user_email, user.picture AS user_picture 
+[Mon May 15 09:56:48.501121 2017] [wsgi:error] [pid 31485:tid 139951195543296] FROM user 
+[Mon May 15 09:56:48.501125 2017] [wsgi:error] [pid 31485:tid 139951195543296] WHERE user.id = ?
+[Mon May 15 09:56:48.501390 2017] [wsgi:error] [pid 31485:tid 139951195543296] 2017-05-15 09:56:48,501 INFO sqlalchemy.engine.base.Engine (1,)
+[Mon May 15 09:56:48.502775 2017] [wsgi:error] [pid 31485:tid 139951195543296] 2017-05-15 09:56:48,502 INFO sqlalchemy.engine.base.Engine SELECT item.name AS item_name, item.id AS item_id, item.description AS item_description, item.price AS item_price, item.shop_id AS item_shop_id, item.category_id AS item_category_id, item.user_id AS item_user_id 
+[Mon May 15 09:56:48.502788 2017] [wsgi:error] [pid 31485:tid 139951195543296] FROM item 
+[Mon May 15 09:56:48.502793 2017] [wsgi:error] [pid 31485:tid 139951195543296] WHERE item.shop_id = ?
+[Mon May 15 09:56:48.502927 2017] [wsgi:error] [pid 31485:tid 139951195543296] 2017-05-15 09:56:48,502 INFO sqlalchemy.engine.base.Engine (2,)
+[Mon May 15 09:56:48.544278 2017] [wsgi:error] [pid 31485:tid 139951170365184] 2017-05-15 09:56:48,544 INFO sqlalchemy.engine.base.Engine SELECT user.id AS user_id, user.name AS user_name, user.email AS user_email, user.picture AS user_picture 
+[Mon May 15 09:56:48.544342 2017] [wsgi:error] [pid 31485:tid 139951170365184] FROM user 
+[Mon May 15 09:56:48.544348 2017] [wsgi:error] [pid 31485:tid 139951170365184] WHERE user.id = ?
+[Mon May 15 09:56:48.544468 2017] [wsgi:error] [pid 31485:tid 139951170365184] 2017-05-15 09:56:48,544 INFO sqlalchemy.engine.base.Engine (1,)
+[Mon May 15 09:56:50.617976 2017] [wsgi:error] [pid 31485:tid 139951170365184] 2017-05-15 09:56:50,617 INFO sqlalchemy.engine.base.Engine SELECT shop.id AS shop_id, shop.name AS shop_name, shop.user_id AS shop_user_id, user.id AS user_id, user.name AS user_name, user.email AS user_email, user.picture AS user_picture 
+[Mon May 15 09:56:50.618019 2017] [wsgi:error] [pid 31485:tid 139951170365184] FROM shop, user ORDER BY shop.name ASC
+[Mon May 15 09:56:50.618157 2017] [wsgi:error] [pid 31485:tid 139951170365184] 2017-05-15 09:56:50,618 INFO sqlalchemy.engine.base.Engine ()
+[Mon May 15 09:56:53.308529 2017] [wsgi:error] [pid 31485:tid 139951195543296] 2017-05-15 09:56:53,308 INFO sqlalchemy.engine.base.Engine SELECT shop.id AS shop_id, shop.name AS shop_name, shop.user_id AS shop_user_id 
+[Mon May 15 09:56:53.308570 2017] [wsgi:error] [pid 31485:tid 139951195543296] FROM shop 
+[Mon May 15 09:56:53.308574 2017] [wsgi:error] [pid 31485:tid 139951195543296] WHERE shop.id = ?
+[Mon May 15 09:56:53.308694 2017] [wsgi:error] [pid 31485:tid 139951195543296] 2017-05-15 09:56:53,308 INFO sqlalchemy.engine.base.Engine (2,)
+[Mon May 15 09:56:53.309660 2017] [wsgi:error] [pid 31485:tid 139951195543296] 2017-05-15 09:56:53,309 INFO sqlalchemy.engine.base.Engine SELECT user.id AS user_id, user.name AS user_name, user.email AS user_email, user.picture AS user_picture 
+[Mon May 15 09:56:53.309674 2017] [wsgi:error] [pid 31485:tid 139951195543296] FROM user 
+[Mon May 15 09:56:53.309678 2017] [wsgi:error] [pid 31485:tid 139951195543296] WHERE user.id = ?
+[Mon May 15 09:56:53.309783 2017] [wsgi:error] [pid 31485:tid 139951195543296] 2017-05-15 09:56:53,309 INFO sqlalchemy.engine.base.Engine (1,)
+[Mon May 15 09:56:53.310632 2017] [wsgi:error] [pid 31485:tid 139951195543296] 2017-05-15 09:56:53,310 INFO sqlalchemy.engine.base.Engine SELECT item.name AS item_name, item.id AS item_id, item.description AS item_description, item.price AS item_price, item.shop_id AS item_shop_id, item.category_id AS item_category_id, item.user_id AS item_user_id 
+[Mon May 15 09:56:53.310642 2017] [wsgi:error] [pid 31485:tid 139951195543296] FROM item 
+[Mon May 15 09:56:53.310644 2017] [wsgi:error] [pid 31485:tid 139951195543296] WHERE item.shop_id = ?
+[Mon May 15 09:56:53.310751 2017] [wsgi:error] [pid 31485:tid 139951195543296] 2017-05-15 09:56:53,310 INFO sqlalchemy.engine.base.Engine (2,)
+[Mon May 15 09:56:53.351768 2017] [wsgi:error] [pid 31485:tid 139951170365184] 2017-05-15 09:56:53,351 INFO sqlalchemy.engine.base.Engine SELECT user.id AS user_id, user.name AS user_name, user.email AS user_email, user.picture AS user_picture 
+[Mon May 15 09:56:53.351803 2017] [wsgi:error] [pid 31485:tid 139951170365184] FROM user 
+[Mon May 15 09:56:53.351807 2017] [wsgi:error] [pid 31485:tid 139951170365184] WHERE user.id = ?
+[Mon May 15 09:56:53.352005 2017] [wsgi:error] [pid 31485:tid 139951170365184] 2017-05-15 09:56:53,351 INFO sqlalchemy.engine.base.Engine (1,)
+[Mon May 15 09:56:56.519973 2017] [wsgi:error] [pid 31485:tid 139951195543296] 2017-05-15 09:56:56,519 INFO sqlalchemy.engine.base.Engine SELECT shop.id AS shop_id, shop.name AS shop_name, shop.user_id AS shop_user_id, user.id AS user_id, user.name AS user_name, user.email AS user_email, user.picture AS user_picture 
+[Mon May 15 09:56:56.520004 2017] [wsgi:error] [pid 31485:tid 139951195543296] FROM shop, user ORDER BY shop.name ASC
+[Mon May 15 09:56:56.520111 2017] [wsgi:error] [pid 31485:tid 139951195543296] 2017-05-15 09:56:56,520 INFO sqlalchemy.engine.base.Engine ()
+[Mon May 15 09:59:12.682116 2017] [wsgi:error] [pid 31485:tid 139951170365184] 2017-05-15 09:59:12,681 INFO sqlalchemy.engine.base.Engine SELECT user.id AS user_id, user.name AS user_name, user.email AS user_email, user.picture AS user_picture 
+[Mon May 15 09:59:12.682189 2017] [wsgi:error] [pid 31485:tid 139951170365184] FROM user 
+[Mon May 15 09:59:12.682194 2017] [wsgi:error] [pid 31485:tid 139951170365184] WHERE user.id = ?
+[Mon May 15 09:59:12.682342 2017] [wsgi:error] [pid 31485:tid 139951170365184] 2017-05-15 09:59:12,682 INFO sqlalchemy.engine.base.Engine (1,)
+[Mon May 15 10:17:43.057550 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041] [2017-05-15 10:17:43,017] ERROR in app: Exception on /shops/ [GET]
+[Mon May 15 10:17:43.062384 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041] Traceback (most recent call last):
+[Mon May 15 10:17:43.062408 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]   File "/home/grader/.local/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+[Mon May 15 10:17:43.062411 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]     response = self.full_dispatch_request()
+[Mon May 15 10:17:43.062414 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]   File "/home/grader/.local/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+[Mon May 15 10:17:43.062417 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]     rv = self.handle_user_exception(e)
+[Mon May 15 10:17:43.062419 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]   File "/home/grader/.local/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+[Mon May 15 10:17:43.062421 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]     reraise(exc_type, exc_value, tb)
+[Mon May 15 10:17:43.062423 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]   File "/home/grader/.local/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+[Mon May 15 10:17:43.062425 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]     rv = self.dispatch_request()
+[Mon May 15 10:17:43.062427 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]   File "/home/grader/.local/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+[Mon May 15 10:17:43.062429 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]     return self.view_functions[rule.endpoint](**req.view_args)
+[Mon May 15 10:17:43.062431 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]   File "/home/grader/Udacity-FSND-catalog/models/items.py", line 48, in showShops
+[Mon May 15 10:17:43.062436 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]     return render_template('publicshops.html', shops=shops, )
+[Mon May 15 10:17:43.062438 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]   File "/home/grader/.local/lib/python2.7/site-packages/flask/templating.py", line 134, in render_template
+[Mon May 15 10:17:43.062440 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]     context, ctx.app)
+[Mon May 15 10:17:43.062442 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]   File "/home/grader/.local/lib/python2.7/site-packages/flask/templating.py", line 116, in _render
+[Mon May 15 10:17:43.062444 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]     rv = template.render(context)
+[Mon May 15 10:17:43.062446 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]   File "/home/grader/.local/lib/python2.7/site-packages/jinja2/environment.py", line 1008, in render
+[Mon May 15 10:17:43.062448 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]     return self.environment.handle_exception(exc_info, True)
+[Mon May 15 10:17:43.062450 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]   File "/home/grader/.local/lib/python2.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+[Mon May 15 10:17:43.062476 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]     reraise(exc_type, exc_value, tb)
+[Mon May 15 10:17:43.062480 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]   File "/home/grader/Udacity-FSND-catalog/models/templates/publicshops.html", line 1, in top-level template code
+[Mon May 15 10:17:43.062483 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]     {% extends "main.html" %} {% block content %} {% include "header.html" %}
+[Mon May 15 10:17:43.062487 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]   File "/home/grader/Udacity-FSND-catalog/models/templates/main.html", line 21, in top-level template code
+[Mon May 15 10:17:43.062490 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]     {% block content %} {% endblock %}
+[Mon May 15 10:17:43.062493 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]   File "/home/grader/Udacity-FSND-catalog/models/templates/publicshops.html", line 11, in block "content"
+[Mon May 15 10:17:43.062495 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]     {% for (shop,owner) in shops %}
+[Mon May 15 10:17:43.062497 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]   File "/home/grader/.local/lib/python2.7/site-packages/sqlalchemy/orm/query.py", line 2855, in __iter__
+[Mon May 15 10:17:43.062499 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]     return self._execute_and_instances(context)
+[Mon May 15 10:17:43.062501 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]   File "/home/grader/.local/lib/python2.7/site-packages/sqlalchemy/orm/query.py", line 2876, in _execute_and_instances
+[Mon May 15 10:17:43.062503 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]     close_with_result=True)
+[Mon May 15 10:17:43.062504 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]   File "/home/grader/.local/lib/python2.7/site-packages/sqlalchemy/orm/query.py", line 2885, in _get_bind_args
+[Mon May 15 10:17:43.062507 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]     **kw
+[Mon May 15 10:17:43.062508 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]   File "/home/grader/.local/lib/python2.7/site-packages/sqlalchemy/orm/query.py", line 2867, in _connection_from_session
+[Mon May 15 10:17:43.062510 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]     conn = self.session.connection(**kw)
+[Mon May 15 10:17:43.062512 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]   File "/home/grader/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 966, in connection
+[Mon May 15 10:17:43.062514 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]     execution_options=execution_options)
+[Mon May 15 10:17:43.062516 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]   File "/home/grader/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 971, in _connection_for_bind
+[Mon May 15 10:17:43.062518 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]     engine, execution_options)
+[Mon May 15 10:17:43.062520 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]   File "/home/grader/.local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 403, in _connection_for_bind
+[Mon May 15 10:17:43.062522 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]     conn = bind.contextual_connect()
+[Mon May 15 10:17:43.062530 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]   File "/home/grader/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 2112, in contextual_connect
+[Mon May 15 10:17:43.062541 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]     self._wrap_pool_connect(self.pool.connect, None),
+[Mon May 15 10:17:43.062545 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]   File "/home/grader/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 2151, in _wrap_pool_connect
+[Mon May 15 10:17:43.062548 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]     e, dialect, self)
+[Mon May 15 10:17:43.062551 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]   File "/home/grader/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1465, in _handle_dbapi_exception_noconnection
+[Mon May 15 10:17:43.062555 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]     exc_info
+[Mon May 15 10:17:43.062557 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]   File "/home/grader/.local/lib/python2.7/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+[Mon May 15 10:17:43.062561 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]     reraise(type(exception), exception, tb=exc_tb, cause=cause)
+[Mon May 15 10:17:43.062564 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]   File "/home/grader/.local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 2147, in _wrap_pool_connect
+[Mon May 15 10:17:43.062568 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]     return fn()
+[Mon May 15 10:17:43.062571 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]   File "/home/grader/.local/lib/python2.7/site-packages/sqlalchemy/pool.py", line 387, in connect
+[Mon May 15 10:17:43.062574 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]     return _ConnectionFairy._checkout(self)
+[Mon May 15 10:17:43.062577 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]   File "/home/grader/.local/lib/python2.7/site-packages/sqlalchemy/pool.py", line 766, in _checkout
+[Mon May 15 10:17:43.062580 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]     fairy = _ConnectionRecord.checkout(pool)
+[Mon May 15 10:17:43.062583 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]   File "/home/grader/.local/lib/python2.7/site-packages/sqlalchemy/pool.py", line 516, in checkout
+[Mon May 15 10:17:43.062586 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]     rec = pool._do_get()
+[Mon May 15 10:17:43.062589 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]   File "/home/grader/.local/lib/python2.7/site-packages/sqlalchemy/pool.py", line 1138, in _do_get
+[Mon May 15 10:17:43.062592 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]     self._dec_overflow()
+[Mon May 15 10:17:43.062594 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]   File "/home/grader/.local/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 66, in __exit__
+[Mon May 15 10:17:43.062596 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]     compat.reraise(exc_type, exc_value, exc_tb)
+[Mon May 15 10:17:43.062597 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]   File "/home/grader/.local/lib/python2.7/site-packages/sqlalchemy/pool.py", line 1135, in _do_get
+[Mon May 15 10:17:43.062599 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]     return self._create_connection()
+[Mon May 15 10:17:43.062601 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]   File "/home/grader/.local/lib/python2.7/site-packages/sqlalchemy/pool.py", line 333, in _create_connection
+[Mon May 15 10:17:43.062603 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]     return _ConnectionRecord(self)
+[Mon May 15 10:17:43.062610 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]   File "/home/grader/.local/lib/python2.7/site-packages/sqlalchemy/pool.py", line 461, in __init__
+[Mon May 15 10:17:43.062612 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]     self.__connect(first_connect_check=True)
+[Mon May 15 10:17:43.062614 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]   File "/home/grader/.local/lib/python2.7/site-packages/sqlalchemy/pool.py", line 651, in __connect
+[Mon May 15 10:17:43.062616 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]     connection = pool._invoke_creator(self)
+[Mon May 15 10:17:43.062618 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]   File "/home/grader/.local/lib/python2.7/site-packages/sqlalchemy/engine/strategies.py", line 105, in connect
+[Mon May 15 10:17:43.062620 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]     return dialect.connect(*cargs, **cparams)
+[Mon May 15 10:17:43.062622 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]   File "/home/grader/.local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 393, in connect
+[Mon May 15 10:17:43.062628 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]     return self.dbapi.connect(*cargs, **cparams)
+[Mon May 15 10:17:43.062632 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]   File "/usr/local/lib/python2.7/dist-packages/psycopg2/__init__.py", line 129, in connect
+[Mon May 15 10:17:43.062635 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]     dsn = _ext.make_dsn(dsn, **kwargs)
+[Mon May 15 10:17:43.062638 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]   File "/usr/local/lib/python2.7/dist-packages/psycopg2/extensions.py", line 177, in make_dsn
+[Mon May 15 10:17:43.062641 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041]     parse_dsn(dsn)
+[Mon May 15 10:17:43.062644 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041] ProgrammingError: (psycopg2.ProgrammingError) invalid dsn: invalid connection option "check_same_thread"
+[Mon May 15 10:17:43.062648 2017] [wsgi:error] [pid 328:tid 140289093949184] [remote 101.68.136.213:6041] 
+[Mon May 15 10:19:48.424047 2017] [wsgi:error] [pid 578:tid 139769181099776] access code received 1ea99c5cd00a1e76a107 

@@ -34,14 +34,20 @@
                     <label for="firstlevelcategory">First Level:
                     </label>
                     <label>
-                        <select data-bind="options: $root.availableCategoryL1,value: L1,  optionsText: 'L1'"></select>
+                        <select id="firstlevel">
+                              <option value ="Clothing, Shoes & Jewelry">Clothing, Shoes & Jewelry</option>
+                              <option value ="Electronics & Computers">Electronics & Computers</option>
+                        </select>
                     </label>
                 </div>
                 <div class="input-group">
                     <label for="secondlevel">Second Level:</label>
                     <label>
-                        <select name="secondlevel" data-bind="options: $root.availableCategoryL2[0],  optionsText: 'L2',visible: L1().num == 0"></select>
-                        <select name="secondlevel" data-bind="options: $root.availableCategoryL2[1],  optionsText: 'L2',visible: L1().num == 1"></select>
+                        <select name="category_id" id='secondlevel'>
+                            <option value='3'>Clothing</option>
+                            <option value='4'>Shoes</option>
+                            <option value='5'>Jewelry</option>
+                        </select>
                     </label>
                 </div>
                 <button class="btn btn-default" id="submit" type="submit">
@@ -53,34 +59,5 @@
     </div>
 </div>
 
-<script>
-    document.getElementById('submit').disabled = false;
-// used for creat new item
-// user choose first level catagory
-// show respoding second level catagory for user to choose
-    function ViewModel() {
-    var self = this;
-    // Non-editable catalog data - would come from the server
-    self.availableCategoryL1 = [
-        { L1: "Clothing, Shoes & Jewelry", num: 0},
-        { L1: "Electronics & Computers", num: 1},
-    ];
-
-    self.availableCategoryL2 = [
-    [
-        { L2: "Clothing" },
-        { L2: "Shoes"},
-        { L2: "Jewelry"}
-    ],
-    [
-        { L2: "Electronics"},
-        { L2: "Computers"},
-    ]
-    ];
-    self.L1 = ko.observable(self.availableCategoryL1[0]);
-}
-
-ko.applyBindings(new ViewModel());
-</script>
 {% endblock %}
 

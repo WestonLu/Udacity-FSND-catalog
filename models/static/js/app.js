@@ -6,7 +6,7 @@ function logout() {
 }
 
 
-// mouse on first level catagory 
+// mouse on first level catagory
 // show respoding second level catagory
 $(function () {
     $("a.logoutbutton").click(logout);
@@ -22,6 +22,21 @@ $(function () {
     }).mouseleave(function () {
         $("#s2").hide();
     });
+
+    var onChangeHandler = function () {
+        $('#secondlevel').empty();
+        if ($('#firstlevel').val() == 'Clothing, Shoes & Jewelry') {
+            $('#secondlevel').append("<option value='3'>Clothing</option>");
+            $('#secondlevel').append("<option value='4'>Shoes</option>");
+            $('#secondlevel').append("<option value='5'>Jewelry</option>");
+        };
+        if ($('#firstlevel').val() == 'Electronics & Computers') {
+            $('#secondlevel').append("<option value='6'>Electronics</option>");
+            $('#secondlevel').append("<option value='7'>Computers</option>");
+        };
+    };
+    $('#firstlevel').change(onChangeHandler);
+
 })
 
 
