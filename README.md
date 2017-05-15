@@ -1,42 +1,48 @@
-# Item Catalog
+# Linux Server Configuration
 
 ------
 ## Descriptions
-An application that provides a list of items within a variety of categories as well as provide a user registration and authentication system. Registered users have the ability to post, edit and delete their own shops. Registered users have the ability to post, edit and delete their own items.
+Configurate a Linux server and host my web applications.
+Flask + Apache2 + mod_wsgi + sqlalchemy + postgreSQL
 
-## What's included?
-> *  project.py
+## Login with ssh
+```$ ssh grader@119.29.111.231 -p 2200 -i location_of_privatekey```
 
-This is the main python file.
+## Web application URL
+http://119.29.111.231/
 
-> *  database_setup.py
+## Software Installed
+Some software installed with apt:
+    finger, apache2, postgresql, python-pip, libapache2-mod-wsgi
+Some packages install with pip:
+click, Flask, httplib2, itsdangerous, Jinja2, MarkupSafe, pip, psycopg2, setuptools, six, SQLAlchemy, SQLAlchemy-Utils, Werkzeug, wheel,
 
-This is a python file used for creating database.
+## Configuration
 
-> *  shopwithusers.db
+> * All packages are updated.
+    PS: check with command```$ sudo apt-get update```
+> * Uncomplicated Firewall (UFW) is configured.
+  (Only allow incoming connections for SSH (port 2200), HTTP (port 80), and NTP (port 123))
+    PS: check with command```$ sudo ufw status```
+> * A new user account named 'grader' with the permission to sudo is created.
+    PS: check with command```$ finger grader```
+> * PasswordAuthentication is forbidden and remote login of the root user disabled
+PS: check with command```$ sudo vim /etc/ssh/sshd_config```
+> * Local timezone is set to UTC
+    PS: check with command```$ date```
+> * wsgi and Apache config file are created
+PS:
+wsgi config file ： ```/home/grader/Udacity-FSND-catalog/catalog.wsgi```
+    Apache config file  : ```/etc/apache2/sites-enabled/000-default.conf```
+> * A new database user named 'catalog' is created.
+PS: check with command
+```
+$ sudo su - postgres
+$ psql
+$ \du
+```
+> *  PostgreSQL configuration.
+```$ vim /etc/postgresql/9.5/main/postgresql.conf```
 
-This is a created database file. You can create a new one with command
-```python database_setup.py```
-
-> * static
-
-A folder including some supporting css and js files.
-
-> * templates
-
-A folder including some html files.
-
-## setup env
-Get started with this helpful    [guide](https://classroom.udacity.com/nanodegrees/nd004/parts/8d3e23e1-9ab6-47eb-b4f3-d5dc7ef27bf0/modules/bc51d967-cb21-46f4-90ea-caf73439dc59/lessons/5475ecd6-cfdb-4418-85a2-f2583074c08d/concepts/14c72fe3-e3fe-4959-9c4b-467cf5b7c3a0) to install the virtual machine. Unzip and copy all the  files under your /vagrant/catalog folder.
-
-## How to Use the App
-
-After setup the env,
-    1.Navigate to catalog project folder `cd /vagrant/catalog`
-    2.Excute the command `python project.py`
-    3.The result will be printed on the screen
-    4.open your browser and input http://localhost:5000/
-    5.now you can see the homepage
-    6.click on 'Show All Stores' at the left bottom of the page, you can see all stores.
-    7.You can sign in with github.
-
+## Location of the public SSH key
+```/home/grader/.ssh/authorized_keys```
