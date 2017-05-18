@@ -30,6 +30,10 @@ def exiting_required(func):
 
 # Show the main page
 @app.route('/')
+def showPortfoliopage():
+    return render_template('index.html')
+
+
 @app.route('/home/')
 def showHomepage():
     if 'username' not in login_session:
