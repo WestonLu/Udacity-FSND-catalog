@@ -33,6 +33,10 @@ def exiting_required(func):
 def showPortfoliopage():
     return render_template('index.html')
 
+@app.route('/zh/')
+def showPortfoliopagezh():
+    return render_template('index_zh.html')
+
 
 @app.route('/home/')
 def showHomepage():
